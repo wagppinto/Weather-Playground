@@ -13,7 +13,7 @@
 
 + (WPObjectController *)sharedInstance;
 
-- (void)getWeatherWithName:(NSString *)name completion:(void (^)(WPWeather *weather))completion;
+- (void)getWeatherWithName:(NSString *)name completion:(void (^)(NSArray *weather))completion;
 
 
 @end

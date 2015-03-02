@@ -23,7 +23,7 @@
     });
     return sharedInstance;
 }
-- (void)getWeatherWithName:(NSString *)name completion:(void (^)(WPWeather *weather))completion{
+- (void)getWeatherWithName:(NSString *)name completion:(void (^)(NSArray *weather))completion{
     
     NSString *path = [NSString stringWithFormat:@"name//%@",name];
     
