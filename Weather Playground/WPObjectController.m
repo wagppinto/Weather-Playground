@@ -27,17 +27,17 @@
     
     NSString *path = [NSString stringWithFormat:@"name//%@",name];
     
-    [[WPNetworkController api] GET:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[WPNetworkController api]GET:path parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         NSArray *responseWeather = responseObject;
         
-        NSMutableArray *allWeather = [NSMutableArray array];
+        NSMutableArray *places = [NSMutableArray array];
         for (NSDictionary *dictionary in responseWeather) {
             WPWeather *weather = [[WPWeather alloc]initWithDictionary:dictionary];
-            [allWeather addObject:weather];
+            [places addObject:weather];
         }
-        completion(allWeather);
+        completion(places);
         
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@" error: %@", error);
         completion(nil);
     }];
