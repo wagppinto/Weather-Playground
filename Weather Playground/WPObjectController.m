@@ -23,26 +23,24 @@
     });
     return sharedInstance;
 }
-- (void)getWeatherWithName:(NSString *)name completion:(void (^)(NSArray *weather))completion{
-    
-    NSString *path = [NSString stringWithFormat:@"name//%@",name];
-    
-    [[WPNetworkController api]GET:path parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSArray *responseWeather = responseObject;
-        
-        NSMutableArray *places = [NSMutableArray array];
-        for (NSDictionary *dictionary in responseWeather) {
-            WPWeather *weather = [[WPWeather alloc]initWithDictionary:dictionary];
-            [places addObject:weather];
-        }
-        completion(places);
-        
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@" error: %@", error);
-        completion(nil);
-    }];
-    
-}
 
+- (void)getWeatherWithName:(NSString *)name completion:(void (^)(WPWeather *weather))completion{
+    
+        NSString *path = [NSString stringWithFormat:@"weather?q=%@", name];
+        [[WPNetworkController api] GET:path parameters:nil success:^(NSURLSessionDataTask *task, id responseObject)
+         {
+             NSLog(@"getWeatherWithName: %@", responseObject);
+             NSDictionary *responseCountry = responseObject;
+             WPWeather *weatherObject = [[WPWeather alloc] initWithDictionary:responseCountry];
+             completion(weatherObject);
+         }
+        
+        failure:^(NSURLSessionDataTask *task, NSError *error)
+         {
+             NSLog(@"ERROR: %@", error);
+             completion(nil);
+         }
+         ];
+    }
 
 @end
