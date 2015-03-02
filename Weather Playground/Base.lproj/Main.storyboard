@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="XP6-xn-SGF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="XP6-xn-SGF">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -15,13 +17,60 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EsX-Sv-K4x">
+                                <rect key="frame" x="112" y="111" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JAu-dW-Gbf">
+                                <rect key="frame" x="137" y="164" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="getWeather:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="zcy-v6-P9T"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iuD-QP-aX2">
+                                <rect key="frame" x="40" y="202" width="240" height="128"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axh-KM-KHY">
+                                <rect key="frame" x="40" y="359" width="240" height="173"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="173" id="bzV-6P-Trj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="axh-KM-KHY" firstAttribute="top" secondItem="iuD-QP-aX2" secondAttribute="bottom" constant="29" id="CQ0-2W-EM9"/>
+                            <constraint firstItem="iuD-QP-aX2" firstAttribute="centerX" secondItem="JAu-dW-Gbf" secondAttribute="centerX" id="OzF-BK-awe"/>
+                            <constraint firstItem="JAu-dW-Gbf" firstAttribute="top" secondItem="EsX-Sv-K4x" secondAttribute="bottom" constant="23" id="RT5-nD-cdL"/>
+                            <constraint firstItem="iuD-QP-aX2" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="24" id="TEs-Ch-T8u"/>
+                            <constraint firstItem="JAu-dW-Gbf" firstAttribute="centerX" secondItem="EsX-Sv-K4x" secondAttribute="centerX" id="YO0-BE-THT"/>
+                            <constraint firstItem="iuD-QP-aX2" firstAttribute="top" secondItem="JAu-dW-Gbf" secondAttribute="bottom" constant="8" symbolic="YES" id="cGQ-jh-6oL"/>
+                            <constraint firstItem="iuD-QP-aX2" firstAttribute="leading" secondItem="axh-KM-KHY" secondAttribute="leading" id="cKi-ba-HgB"/>
+                            <constraint firstItem="EsX-Sv-K4x" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="96" id="gsF-QN-Iz0"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="axh-KM-KHY" secondAttribute="bottom" constant="36" id="jVQ-7S-65q"/>
+                            <constraint firstItem="EsX-Sv-K4x" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="47" id="sxm-kn-k1A"/>
+                            <constraint firstItem="iuD-QP-aX2" firstAttribute="trailing" secondItem="axh-KM-KHY" secondAttribute="trailing" id="vL5-fN-a8R"/>
+                            <constraint firstItem="EsX-Sv-K4x" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="xfh-aV-mDd"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="LLV-nM-bGP"/>
+                    <connections>
+                        <outlet property="textField" destination="EsX-Sv-K4x" id="1Ju-0h-foJ"/>
+                        <outlet property="weatherDisplay" destination="axh-KM-KHY" id="jFb-jO-8Lg"/>
+                        <outlet property="weatherIcon" destination="iuD-QP-aX2" id="0gm-RP-aTe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="498" y="259"/>
+            <point key="canvasLocation" x="735" y="259"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MZ0-vm-jVV">

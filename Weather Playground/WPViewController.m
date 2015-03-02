@@ -9,10 +9,19 @@
 #import "WPViewController.h"
 
 @interface WPViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (weak, nonatomic) IBOutlet UILabel *weatherDisplay;
+@property (weak, nonatomic) IBOutlet UIImageView *weatherIcon;
 
 @end
 
 @implementation WPViewController
+- (IBAction)getWeather:(id)sender {
+    
+    
+    
+    
+}
 
 - (void)viewDidLoad
 {
