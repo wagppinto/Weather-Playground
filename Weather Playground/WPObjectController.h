@@ -7,7 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "WPWeather.h"
 
 @interface WPObjectController : NSObject
+
++ (WPObjectController *)sharedInstance;
+
+- (void)getWeatherWithName:(NSString *)name completion:(void (^)(WPWeather *weather))completion;
+
 
 @end

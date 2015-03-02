@@ -10,4 +10,15 @@
 
 @interface WPWeather : NSObject
 
+//locationName, weatherMain, weatherDescription, weatherIcon, weatherTemp
+@property (nonatomic, strong) NSString *locationName;
+@property (nonatomic, strong) NSString *weatherMain;
+@property (nonatomic, strong) NSString *weatherDescription;
+@property (nonatomic, strong) NSString *weatherIcon;
+@property (nonatomic, strong) NSString *weatherTemp;
+
+
+-(instancetype)initWithDictionary: (NSDictionary *)dictionary;
+
+
 @end
